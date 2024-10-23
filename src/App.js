@@ -1,23 +1,30 @@
 import logo from './logo.svg';
 import './App.css';
+import CustomButton from"./Components/CustomButton.jsx"
+import NavBar from "./Components/headBar.jsx"
+import {BrowserRouter,Route,Routes} from 'react-router-dom'
+import Home from './Pages/Home.jsx'
+import News from './Pages/News.jsx'
+import Contact from './Pages/Contact.jsx'
+import About from './Pages/About.jsx'
+import Broken from './Pages/Broken.jsx'
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <NavBar/>
+      <h1>Hello World</h1>
+      <CustomButton/>
+      <BrowserRouter>
+        <Routes>
+          <Route path = '/' element = {<Home/>}/>
+          <Route path = '/news' element = {<News/>}/>
+          <Route path = '/contact' element = {<Contact/>}/>
+          <Route path = '/about' element = {<About/>}/>
+          <Route path = '/*' element = {<Broken/>}/>
+
+        </Routes>
+      </BrowserRouter>
     </div>
   );
 }
